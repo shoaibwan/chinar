@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    
+
     <!-- Favicons - Multiple sizes for better compatibility -->
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= content.favicon %>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= content.favicon %>">
-    <link rel="shortcut icon" type="image/x-icon" href="<%= content.favicon %>">
-    <link rel="apple-touch-icon" href="<%= content.favicon %>">
-    
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="<%= content.favicon %>"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="<%= content.favicon %>"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="<%= content.favicon %>"
+    />
+    <link rel="apple-touch-icon" href="<%= content.favicon %>" />
+
     <!-- Meta tags for better SEO and social sharing -->
-    <meta name="description" content="Chinar Charity Foundation - Making a difference in the lives of those in need through compassion and action.">
-    <meta name="keywords" content="charity, NGO, donation, help, community, volunteer">
-    <meta property="og:title" content="<%= title %>">
-    <meta property="og:description" content="Join us in making a difference in the lives of those in need.">
-    <meta property="og:image" content="<%= content.logo %>">
-    <meta property="og:type" content="website">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <%- include('partials/navbar') %>
-    <%- include('partials/home') %>
-    <%- include('partials/mission') %>
-    <%- include('partials/projects') %>
-    <%- include('partials/impact') %>
-    <%- include('partials/stories') %>
-    <%- include('partials/about') %>
-    <%- include('partials/contact') %>
-    <%- include('partials/footer') %>
-    
+    <meta
+      name="description"
+      content="Chinar Charity Foundation - Making a difference in the lives of those in need through compassion and action."
+    />
+    <meta
+      name="keywords"
+      content="charity, NGO, donation, help, community, volunteer"
+    />
+    <meta property="og:title" content="<%= title %>" />
+    <meta
+      property="og:description"
+      content="Join us in making a difference in the lives of those in need."
+    />
+    <meta property="og:image" content="<%= content.logo %>" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <%- include('partials/navbar') %> <%- include('partials/home') %> <%-
+    include('partials/projects') %> <%- include('partials/mission') %> <%-
+    include('partials/impact') %> <%- include('partials/stories') %> <%-
+    include('partials/about') %> <%- include('partials/contact') %> <%-
+    include('partials/footer') %>
+
     <script src="/js/main.js"></script>
-</body>
+  </body>
 </html>
