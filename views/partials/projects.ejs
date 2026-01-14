@@ -1,0 +1,25 @@
+<section id="projects" class="projects-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Projects</h2>
+            <p class="section-subtitle">Making a Real Difference in Communities</p>
+        </div>
+        
+        <div class="projects-grid">
+            <% content.projects.forEach(project => { %>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="<%= project.image %>" alt="<%= project.title %>" onerror="this.src='https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600'">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="<%= project.icon %>"></i>
+                        </div>
+                        <h3><%= project.title %></h3>
+                        <p><%= project.description %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>

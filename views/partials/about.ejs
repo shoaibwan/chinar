@@ -1,0 +1,74 @@
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="section-header">
+            <h2><%= content.about.title %></h2>
+            <p class="section-subtitle"><%= content.about.subtitle %></p>
+        </div>
+        
+        <div class="about-content <%= content.about.imagePosition === 'top' ? 'image-top' : content.about.imagePosition === 'bottom' ? 'image-bottom' : '' %>">
+            <% if (content.about.imagePosition === 'top' && content.about.image && content.about.image.trim() !== '') { %>
+            <div class="about-image full-width">
+                <img src="<%= content.about.image %>" alt="About Us" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700'">
+            </div>
+            <% } %>
+            
+            <% if ((content.about.imagePosition === 'left' || !content.about.imagePosition) && content.about.image && content.about.image.trim() !== '') { %>
+            <div class="about-image">
+                <img src="<%= content.about.image %>" alt="About Us" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700'">
+            </div>
+            <% } %>
+            
+            <div class="about-text">
+                <h3><%= content.about.heading %></h3>
+                <p><%= content.about.paragraph1 %></p>
+                
+                <p><%= content.about.paragraph2 %></p>
+                
+                <p><%= content.about.paragraph3 %></p>
+                
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <h4>Recognized Excellence</h4>
+                            <p>Award-winning programs and initiatives</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <i class="fas fa-certificate"></i>
+                        <div>
+                            <h4>Certified NGO</h4>
+                            <p>Registered and transparent operations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <i class="fas fa-network-wired"></i>
+                        <div>
+                            <h4>Strong Network</h4>
+                            <p>Partnerships with local and international organizations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-section">
+                    <h3>Our Team</h3>
+                    <p>Led by passionate individuals committed to social change, our team brings together diverse expertise in social work, education, healthcare, and community development.</p>
+                </div>
+            </div>
+            
+            <% if (content.about.imagePosition === 'right' && content.about.image && content.about.image.trim() !== '') { %>
+            <div class="about-image">
+                <img src="<%= content.about.image %>" alt="About Us" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700'">
+            </div>
+            <% } %>
+            
+            <% if (content.about.imagePosition === 'bottom' && content.about.image && content.about.image.trim() !== '') { %>
+            <div class="about-image full-width">
+                <img src="<%= content.about.image %>" alt="About Us" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700'">
+            </div>
+            <% } %>
+        </div>
+    </div>
+</section>

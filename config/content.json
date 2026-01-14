@@ -1,0 +1,127 @@
+{
+  "home": {
+    "title": "Chinar Charity Foundation",
+    "subtitle": "Empowering Communities, Transforming Lives",
+    "description": "Together we can make a difference in the lives of those who need it most",
+    "backgroundImage": "/images/background.jpg"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "subtitle": "Dedicated to Creating Lasting Change",
+    "heading": "Building a Better Tomorrow",
+    "paragraph1": "At Chinar Charity Foundation, we believe that every individual deserves access to basic necessities, education, and opportunities for growth. Our mission is to empower underprivileged communities by providing essential resources, educational support, and sustainable development programs.",
+    "paragraph2": "We work tirelessly to bridge the gap between those in need and those who can help, creating a network of compassion and support that transforms lives and builds stronger communities.",
+    "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800",
+    "imagePosition": "right",
+    "values": [
+      {
+        "icon": "fas fa-heart",
+        "title": "Compassion",
+        "description": "We lead with empathy and understanding"
+      },
+      {
+        "icon": "fas fa-handshake",
+        "title": "Integrity",
+        "description": "Transparency in all our actions"
+      },
+      {
+        "icon": "fas fa-users",
+        "title": "Community",
+        "description": "Building stronger communities together"
+      },
+      {
+        "icon": "fas fa-leaf",
+        "title": "Sustainability",
+        "description": "Creating lasting positive change"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Education for All",
+      "description": "Providing quality education to underprivileged children in rural areas.",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600",
+      "icon": "fas fa-graduation-cap"
+    },
+    {
+      "id": 2,
+      "title": "Healthcare Support",
+      "description": "Free medical camps and healthcare facilities for those in need.",
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600",
+      "icon": "fas fa-heartbeat"
+    },
+    {
+      "id": 3,
+      "title": "Food Distribution",
+      "description": "Ensuring no one goes to bed hungry through our food programs.",
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600",
+      "icon": "fas fa-utensils"
+    },
+    {
+      "id": 4,
+      "title": "Women Empowerment",
+      "description": "Skills training and economic independence for women.",
+      "image": "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=600",
+      "icon": "fas fa-female"
+    }
+  ],
+  "impact": {
+    "title": "Our Impact",
+    "subtitle": "Making a Real Difference",
+    "stats": [
+      {
+        "number": "50000+",
+        "label": "Lives Impacted",
+        "icon": "fas fa-users"
+      },
+      {
+        "number": "200+",
+        "label": "Projects Completed",
+        "icon": "fas fa-project-diagram"
+      },
+      {
+        "number": "1000+",
+        "label": "Volunteers",
+        "icon": "fas fa-hands-helping"
+      },
+      {
+        "number": "25+",
+        "label": "Communities Served",
+        "icon": "fas fa-globe"
+      }
+    ]
+  },
+  "stories": [
+    {
+      "id": 1,
+      "name": "Priya's Education Journey",
+      "story": "From a small village with limited resources, Priya received a scholarship through our program. Today, she's a college graduate pursuing her dreams of becoming a teacher.",
+      "image": "https://images.unsplash.com/photo-1534120247760-c44c3e4a62f1?w=400"
+    },
+    {
+      "id": 2,
+      "name": "Village Health Transformation",
+      "story": "Our medical camps brought healthcare to a remote village, helping over 500 families access free medical services and medicines for the first time.",
+      "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400"
+    },
+    {
+      "id": 3,
+      "name": "Women's Self-Help Group",
+      "story": "Twenty women from economically challenged backgrounds started their own business with our support. They now provide for their families with dignity.",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400"
+    }
+  ],
+  "about": {
+    "title": "About Us",
+    "subtitle": "Who We Are",
+    "heading": "Committed to Making a Difference",
+    "paragraph1": "Founded with a vision to create positive change, Chinar Charity Foundation has been serving communities for over a decade. We started with a simple belief: that together, we can make the world a better place.",
+    "paragraph2": "Today, we work across multiple states, touching lives through education, healthcare, food security, and livelihood programs. Our dedicated team of volunteers and staff work tirelessly to ensure that help reaches those who need it most.",
+    "paragraph3": "We believe in transparency, accountability, and sustainable development. Every contribution we receive is used responsibly to maximize impact and create lasting change in the communities we serve.",
+    "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800",
+    "imagePosition": "left"
+  },
+  "logo": "/images/1768362212184-848389313.png",
+  "favicon": "/images/1768362454647-222925656.ico"
+}

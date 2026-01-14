@@ -1,0 +1,35 @@
+<section id="impact" class="impact-section">
+    <div class="container">
+        <div class="section-header">
+            <h2><%= content.impact.title %></h2>
+            <p class="section-subtitle"><%= content.impact.subtitle %></p>
+        </div>
+        
+        <div class="impact-grid">
+            <% content.impact.stats.forEach(stat => { %>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="<%= stat.icon %>"></i>
+                    </div>
+                    <div class="impact-number" data-target="<%= stat.number %>"><%= stat.number %></div>
+                    <div class="impact-label"><%= stat.label %></div>
+                </div>
+            <% }); %>
+        </div>
+        
+        <div class="impact-testimonial">
+            <div class="testimonial-content">
+                <div class="testimonial-image">
+                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=400" alt="Community Impact">
+                </div>
+                <div class="testimonial-text">
+                    <h3>Creating Sustainable Change</h3>
+                    <p>"Our focus is not just on providing immediate relief, but on creating long-term sustainable solutions that empower communities to thrive independently. Every project we undertake is designed with sustainability and community involvement at its core."</p>
+                    <div class="testimonial-author">
+                        <strong>Foundation Team</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

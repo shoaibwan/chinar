@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png" id="favicon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .admin-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .admin-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .admin-header h1 {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        
+        .btn-success {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #27ae60;
+        }
+        
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card h2 {
+            margin-bottom: 20px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .image-preview {
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 300px;
+        }
+        
+        .image-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .alert.show {
+            display: block;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .project-list,
+        .story-list {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .project-item,
+        .story-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 15px;
+        }
+        
+        .item-content {
+            flex: 1;
+        }
+        
+        .item-content h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .item-content p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .item-image {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .item-actions {
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+        
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        .upload-area {
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9ff;
+        }
+        
+        .upload-area:hover {
+            background: #f0f2ff;
+            border-color: #764ba2;
+        }
+        
+        .upload-area i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .file-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e7f3ff;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .file-info.show {
+            display: block;
+        }
+        
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .stat-item input {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                width: 100%;
+            }
+            
+            .project-item,
+            .story-item {
+                flex-direction: column;
+            }
+            
+            .item-image {
+                width: 100%;
+                height: 200px;
+            }
+            
+            .item-actions {
+                flex-direction: row;
+                width: 100%;
+            }
+            
+            .item-actions .btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <div class="admin-header-content">
+            <h1>
+                <i class="fas fa-cog"></i>
+                Admin Dashboard
+            </h1>
+            <div class="header-actions">
+                <a href="/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-eye"></i>
+                    View Website
+                </a>
+                <button onclick="logout()" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="alert" id="globalAlert"></div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('home')">
+                <i class="fas fa-home"></i>
+                Home
+            </div>
+            <div class="tab" onclick="switchTab('mission')">
+                <i class="fas fa-bullseye"></i>
+                Mission
+            </div>
+            <div class="tab" onclick="switchTab('projects')">
+                <i class="fas fa-project-diagram"></i>
+                Projects
+            </div>
+            <div class="tab" onclick="switchTab('impact')">
+                <i class="fas fa-chart-line"></i>
+                Impact
+            </div>
+            <div class="tab" onclick="switchTab('stories')">
+                <i class="fas fa-book-open"></i>
+                Stories
+            </div>
+            <div class="tab" onclick="switchTab('about')">
+                <i class="fas fa-info-circle"></i>
+                About Us
+            </div>
+            <div class="tab" onclick="switchTab('branding')">
+                <i class="fas fa-image"></i>
+                Logo & Favicon
+            </div>
+        </div>
+        
+        <!-- Home Section -->
+        <div id="home-section" class="content-section active">
+            <div class="card">
+                <h2><i class="fas fa-home"></i> Home Section Content</h2>
+                <form id="homeForm">
+                    <div class="form-group">
+                        <label for="homeTitle">Title</label>
+                        <input type="text" id="homeTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="homeSubtitle">Subtitle</label>
+                        <input type="text" id="homeSubtitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="homeDescription">Description</label>
+                        <textarea id="homeDescription" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-image"></i> Background Image</h2>
+                <div class="upload-area" onclick="document.getElementById('homeImageFile').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Click to upload background image</p>
+                    <small>Maximum file size: 5MB</small>
+                </div>
+                <input type="file" id="homeImageFile" accept="image/*" style="display: none;" onchange="uploadImage('home', this)">
+                <div class="file-info" id="homeImageInfo"></div>
+                <div class="image-preview" id="homeImagePreview"></div>
+            </div>
+        </div>
+        
+        <!-- Mission Section -->
+        <div id="mission-section" class="content-section">
+            <div class="card">
+                <h2><i class="fas fa-bullseye"></i> Mission Section Content</h2>
+                <form id="missionForm">
+                    <div class="form-group">
+                        <label for="missionTitle">Title</label>
+                        <input type="text" id="missionTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="missionSubtitle">Subtitle</label>
+                        <input type="text" id="missionSubtitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="missionHeading">Heading</label>
+                        <input type="text" id="missionHeading" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="missionParagraph1">First Paragraph</label>
+                        <textarea id="missionParagraph1" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="missionParagraph2">Second Paragraph</label>
+                        <textarea id="missionParagraph2" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                
+                    <div class="form-group">
+                        <label for="missionImagePosition">Image Position</label>
+                        <select id="missionImagePosition">
+                            <option value="right">Right side (default)</option>
+                            <option value="left">Left side</option>
+                            <option value="top">Top (full width)</option>
+                            <option value="bottom">Bottom (full width)</option>
+                        </select>
+                        <small class="form-hint">Choose where to display the mission image relative to the text content</small>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-image"></i> Mission Image</h2>
+                <div class="upload-area" onclick="document.getElementById('missionImageFile').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Click to upload mission image</p>
+                    <small>Maximum file size: 5MB</small>
+                </div>
+                <input type="file" id="missionImageFile" accept="image/*" style="display: none;" onchange="uploadImage('mission', this)">
+                <div class="file-info" id="missionImageInfo"></div>
+                <div class="image-preview" id="missionImagePreview"></div>
+                <button class="btn btn-danger" style="margin-top: 15px;" onclick="removeSectionImage('mission')">
+                    <i class="fas fa-trash"></i> Remove Mission Image
+                </button>
+            </div>
+        </div>
+        
+        <!-- Projects Section -->
+        <div id="projects-section" class="content-section">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Manage Projects</h2>
+                <div class="project-list" id="projectList"></div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-plus"></i> Add New Project</h2>
+                <form id="addProjectForm">
+                    <div class="form-group">
+                        <label for="projectTitle">Title</label>
+                        <input type="text" id="projectTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription">Description</label>
+                        <textarea id="projectDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectIcon">Icon Class (Font Awesome)</label>
+                        <input type="text" id="projectIcon" placeholder="fas fa-graduation-cap">
+                    </div>
+                    <div class="form-group">
+                        <label>Project Image</label>
+                        <div class="upload-area" onclick="document.getElementById('projectImageFile').click()">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload project image</p>
+                        </div>
+                        <input type="file" id="projectImageFile" accept="image/*" style="display: none;" onchange="previewProjectImage(this)">
+                        <div class="image-preview" id="projectImagePreview"></div>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-plus"></i>
+                        Add Project
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Impact Section -->
+        <div id="impact-section" class="content-section">
+            <div class="card">
+                <h2><i class="fas fa-chart-line"></i> Impact Statistics</h2>
+                <form id="impactForm">
+                    <div class="form-group">
+                        <label for="impactTitle">Title</label>
+                        <input type="text" id="impactTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="impactSubtitle">Subtitle</label>
+                        <input type="text" id="impactSubtitle" required>
+                    </div>
+                    
+                    <h3 style="margin: 20px 0;">Statistics</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <label>Stat 1 Number</label>
+                            <input type="text" id="stat1Number" placeholder="50000+">
+                            <label>Stat 1 Label</label>
+                            <input type="text" id="stat1Label" placeholder="Lives Impacted">
+                        </div>
+                        <div class="stat-item">
+                            <label>Stat 2 Number</label>
+                            <input type="text" id="stat2Number" placeholder="200+">
+                            <label>Stat 2 Label</label>
+                            <input type="text" id="stat2Label" placeholder="Projects Completed">
+                        </div>
+                        <div class="stat-item">
+                            <label>Stat 3 Number</label>
+                            <input type="text" id="stat3Number" placeholder="1000+">
+                            <label>Stat 3 Label</label>
+                            <input type="text" id="stat3Label" placeholder="Volunteers">
+                        </div>
+                        <div class="stat-item">
+                            <label>Stat 4 Number</label>
+                            <input type="text" id="stat4Number" placeholder="25+">
+                            <label>Stat 4 Label</label>
+                            <input type="text" id="stat4Label" placeholder="Communities Served">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Stories Section -->
+        <div id="stories-section" class="content-section">
+            <div class="card">
+                <h2><i class="fas fa-book-open"></i> Manage Stories</h2>
+                <div class="story-list" id="storyList"></div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-plus"></i> Add New Story</h2>
+                <form id="addStoryForm">
+                    <div class="form-group">
+                        <label for="storyName">Story Name/Title</label>
+                        <input type="text" id="storyName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="storyContent">Story Content</label>
+                        <textarea id="storyContent" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Story Image</label>
+                        <div class="upload-area" onclick="document.getElementById('storyImageFile').click()">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload story image</p>
+                        </div>
+                        <input type="file" id="storyImageFile" accept="image/*" style="display: none;" onchange="previewStoryImage(this)">
+                        <div class="image-preview" id="storyImagePreview"></div>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-plus"></i>
+                        Add Story
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- About Section -->
+        <div id="about-section" class="content-section">
+            <div class="card">
+                <h2><i class="fas fa-info-circle"></i> About Us Content</h2>
+                <form id="aboutForm">
+                    <div class="form-group">
+                        <label for="aboutTitle">Title</label>
+                        <input type="text" id="aboutTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aboutSubtitle">Subtitle</label>
+                        <input type="text" id="aboutSubtitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aboutHeading">Heading</label>
+                        <input type="text" id="aboutHeading" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aboutParagraph1">First Paragraph</label>
+                        <textarea id="aboutParagraph1" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="aboutParagraph2">Second Paragraph</label>
+                        <textarea id="aboutParagraph2" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="aboutParagraph3">Third Paragraph</label>
+                        <textarea id="aboutParagraph3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                
+                    <div class="form-group">
+                        <label for="aboutImagePosition">Image Position</label>
+                        <select id="aboutImagePosition">
+                            <option value="left">Left side (default)</option>
+                            <option value="right">Right side</option>
+                            <option value="top">Top (full width)</option>
+                            <option value="bottom">Bottom (full width)</option>
+                        </select>
+                        <small class="form-hint">Choose where to display the about image relative to the text content</small>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-image"></i> About Us Image</h2>
+                <div class="upload-area" onclick="document.getElementById('aboutImageFile').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Click to upload about image</p>
+                    <small>Maximum file size: 5MB</small>
+                </div>
+                <input type="file" id="aboutImageFile" accept="image/*" style="display: none;" onchange="uploadImage('about', this)">
+                <div class="file-info" id="aboutImageInfo"></div>
+                <div class="image-preview" id="aboutImagePreview"></div>
+                <button class="btn btn-danger" style="margin-top: 15px;" onclick="removeSectionImage('about')">
+                    <i class="fas fa-trash"></i> Remove About Image
+                </button>
+            </div>
+        </div>
+        
+        <!-- Logo & Favicon Section -->
+        <div id="branding-section" class="content-section">
+            <div class="card">
+                <h2><i class="fas fa-image"></i> Logo Upload</h2>
+                <p style="margin-bottom: 20px; color: #666;">
+                    Upload your organization's logo. This will be displayed in the navigation bar.
+                    <br><strong>Required:</strong> PNG format with transparent background
+                    <br><strong>Recommended Size:</strong> 512x512px or larger for optimal clarity
+                </p>
+                <div class="upload-area" onclick="document.getElementById('logoImageFile').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Click to upload logo (PNG only)</p>
+                    <small>Maximum file size: 5MB | Format: PNG | Recommended: 512x512px or larger</small>
+                </div>
+                <input type="file" id="logoImageFile" accept="image/png" style="display: none;" onchange="uploadBrandingFile('logo', this)">
+                <div class="file-info" id="logoImageInfo"></div>
+                <div class="image-preview" id="logoImagePreview"></div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-bookmark"></i> Favicon Upload</h2>
+                <p style="margin-bottom: 20px; color: #666;">
+                    Upload your favicon (browser tab icon). This must be in ICO format.
+                    <br><strong>Required:</strong> ICO format (not PNG or JPG)
+                    <br><strong>Note:</strong> Please convert your image to ICO format before uploading. We do not convert PNG/JPG to ICO.
+                </p>
+                <div class="upload-area" onclick="document.getElementById('faviconImageFile').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Click to upload favicon (ICO only)</p>
+                    <small>Maximum file size: 1MB | Format: ICO only | Common sizes: 16x16, 32x32, 48x48</small>
+                </div>
+                <input type="file" id="faviconImageFile" accept=".ico" style="display: none;" onchange="uploadBrandingFile('favicon', this)">
+                <div class="file-info" id="faviconImageInfo"></div>
+                <div class="image-preview" id="faviconImagePreview">
+                    <p style="color: #999; padding: 20px; text-align: center;">ICO files cannot be previewed</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-lightbulb"></i> Image Optimization Tips</h2>
+                <ul style="line-height: 2; color: #666;">
+                    <li><strong>Logo:</strong> Use square dimensions (512x512px or 256x256px) with transparent PNG format</li>
+                    <li><strong>Favicon:</strong> Must be in ICO format. Use online tools like favicon.io or convertio.co to convert PNG to ICO</li>
+                    <li><strong>Favicon Sizes:</strong> ICO files can contain multiple sizes (16x16, 32x32, 48x48) for different devices</li>
+                    <li><strong>Background Image:</strong> Use high resolution (1920x1080px or larger) for full-width display</li>
+                    <li><strong>Section Images:</strong> Use 800x600px or similar for good quality without large file sizes</li>
+                    <li><strong>Project/Story Images:</strong> Use 600x400px for consistent display</li>
+                    <li><strong>File Size:</strong> Keep images under 5MB. Compress large images before uploading</li>
+                    <li><strong>Format:</strong> Use JPG for photos, PNG for graphics/logos with transparency</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/admin.js"></script>
+</body>
+</html>

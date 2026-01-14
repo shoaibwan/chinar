@@ -1,0 +1,22 @@
+<section id="stories" class="stories-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Success Stories</h2>
+            <p class="section-subtitle">Real Stories, Real Impact</p>
+        </div>
+        
+        <div class="stories-grid">
+            <% content.stories.forEach(story => { %>
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="<%= story.image %>" alt="<%= story.name %>" onerror="this.src='https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=500'">
+                    </div>
+                    <div class="story-content">
+                        <h3><%= story.name %></h3>
+                        <p><%= story.story %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>

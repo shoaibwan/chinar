@@ -1,0 +1,19 @@
+<section id="home" class="hero-section">
+    <!-- Background image only -->
+    <div class="background-container">
+        <!-- Image background -->
+        <img src="<%= content.home.backgroundImage %>" alt="Background" class="hero-background-image" id="hero-image" onerror="this.src='https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1920'">
+        
+        <div class="background-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+        <h1 class="hero-title"><%= content.home.title %></h1>
+        <p class="hero-subtitle"><%= content.home.subtitle %></p>
+        <p class="hero-description"><%= content.home.description %></p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Join Our Mission</a>
+            <a href="#projects" class="btn btn-secondary">View Projects</a>
+        </div>
+    </div>
+</section>

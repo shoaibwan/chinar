@@ -1,0 +1,44 @@
+<section id="mission" class="mission-section">
+    <div class="container">
+        <div class="section-header">
+            <h2><%= content.mission.title %></h2>
+            <p class="section-subtitle"><%= content.mission.subtitle %></p>
+        </div>
+        
+        <div class="mission-content <%= content.mission.imagePosition === 'top' ? 'image-top' : content.mission.imagePosition === 'bottom' ? 'image-bottom' : '' %>">
+            <% if (content.mission.imagePosition === 'top' && content.mission.image && content.mission.image.trim() !== '') { %>
+            <div class="mission-image full-width">
+                <img src="<%= content.mission.image %>" alt="Our Mission" onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800'">
+            </div>
+            <% } %>
+            
+            <div class="mission-text">
+                <h3><%= content.mission.heading %></h3>
+                <p><%= content.mission.paragraph1 %></p>
+                <p><%= content.mission.paragraph2 %></p>
+                
+                <div class="mission-values">
+                    <% content.mission.values.forEach(value => { %>
+                        <div class="value-item">
+                            <i class="<%= value.icon %>"></i>
+                            <h4><%= value.title %></h4>
+                            <p><%= value.description %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+            
+            <% if ((content.mission.imagePosition === 'right' || content.mission.imagePosition === 'left' || !content.mission.imagePosition) && content.mission.image && content.mission.image.trim() !== '') { %>
+            <div class="mission-image">
+                <img src="<%= content.mission.image %>" alt="Our Mission" onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800'">
+            </div>
+            <% } %>
+            
+            <% if (content.mission.imagePosition === 'bottom' && content.mission.image && content.mission.image.trim() !== '') { %>
+            <div class="mission-image full-width">
+                <img src="<%= content.mission.image %>" alt="Our Mission" onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800'">
+            </div>
+            <% } %>
+        </div>
+    </div>
+</section>

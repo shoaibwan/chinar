@@ -1,0 +1,24 @@
+# Logo File Instructions
+
+Place your logo file here with the name: **logo.png**
+
+## Specifications:
+- **File name**: logo.png
+- **Format**: PNG (preferred for transparency) or JPG
+- **Recommended size**: 96x96 pixels minimum, higher resolution is fine
+- **Aspect ratio**: Square or horizontal logo works best
+- **Background**: Transparent PNG recommended for best results
+
+## Where it's used:
+1. **Navbar**: Displayed at 50px height (auto-width to maintain aspect ratio)
+2. **Favicon**: Browser tab icon
+
+## Fallback:
+If this file is not present, the website will automatically use an online charity icon from Icons8.
+
+## Example:
+```
+/public/images/logo.png  <-- Place your file here
+```
+
+Once you add the file, refresh your browser to see the logo appear!

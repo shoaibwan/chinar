@@ -1,0 +1,36 @@
+VIDEO BACKGROUND INSTRUCTIONS
+=============================
+
+Please add a background video file named "background.mp4" to this folder.
+
+Free Video Resources:
+---------------------
+1. Pexels Videos: https://www.pexels.com/videos/
+2. Pixabay: https://pixabay.com/videos/
+3. Coverr: https://www.coverr.co/
+
+Recommended Search Terms:
+-------------------------
+- "charity hands"
+- "helping community"
+- "volunteers"
+- "donation"
+- "hope"
+- "children smiling"
+- "people together"
+
+Video Specifications:
+--------------------
+- Format: MP4 (H.264 codec)
+- Resolution: 1920x1080 or 1280x720
+- Duration: 10-30 seconds (will loop)
+- File size: Under 5MB recommended
+- Aspect ratio: 16:9
+
+Example Videos to Download:
+---------------------------
+1. https://www.pexels.com/video/people-holding-hands-3205536/
+2. https://www.pexels.com/video/group-of-people-smiling-3255761/
+3. https://www.pexels.com/video/children-playing-outdoors-2035509/
+
+After downloading, rename the file to "background.mp4" and place it in this folder.

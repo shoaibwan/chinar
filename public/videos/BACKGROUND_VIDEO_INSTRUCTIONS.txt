@@ -1,0 +1,59 @@
+# Background Video Instructions
+
+Place your background video here with the name: **background.mp4**
+
+## Specifications:
+- **File name**: background.mp4
+- **Format**: MP4 (H.264 codec recommended for best compatibility)
+- **Recommended resolution**: 1920x1080 (Full HD) or 1280x720 (HD)
+- **Duration**: 10-30 seconds (video will loop continuously)
+- **File size**: Optimize for web (aim for under 5MB if possible, max 10MB)
+- **Frame rate**: 24-30 fps
+- **Audio**: Not needed (video will be muted for autoplay)
+
+## Where it's used:
+The video is used as an animated background for the home/hero section of the website.
+
+## Fallback System:
+- **Priority 1**: This video will try to load first
+- **Priority 2**: If video fails to load or doesn't exist, background image will display
+- **Priority 3**: If neither exists, the colored overlay will show
+
+## Tips for Best Results:
+1. **Compression**: Use video compression tools to reduce file size while maintaining quality
+   - Tools: HandBrake, Adobe Media Encoder, or online compressors
+2. **Content**: Choose video that:
+   - Represents your charity mission
+   - Has slow, smooth movement (not too fast/jerky)
+   - Works well as a background (not too distracting)
+3. **Optimization**:
+   - Remove audio track to reduce file size
+   - Use H.264 codec for best browser compatibility
+   - Test on mobile devices (some may fall back to image)
+4. **Looping**: Make sure the end flows smoothly back to the beginning
+
+## Browser Behavior:
+- Desktop browsers: Video will autoplay (muted)
+- Mobile browsers: May show image fallback to save data
+- Low bandwidth: Image fallback may display instead
+
+## Example:
+```
+/public/videos/background.mp4  <-- Place your file here
+```
+
+You can have BOTH video and image files. The website will intelligently choose which to display based on:
+- File availability
+- Loading success
+- Browser capabilities
+- User's connection speed
+
+## Video Compression Commands (Optional):
+If you have FFmpeg installed:
+```bash
+# Compress to web-optimized MP4
+ffmpeg -i input.mp4 -c:v libx264 -crf 23 -preset slow -vf scale=1920:1080 -an background.mp4
+
+# For smaller file size (lower quality)
+ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset slow -vf scale=1280:720 -an background.mp4
+```

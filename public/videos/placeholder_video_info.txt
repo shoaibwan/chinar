@@ -1,0 +1,11 @@
+IMPORTANT: Download a background video!
+========================================
+
+This folder needs a video file named "background.mp4"
+
+Quick Download Links:
+1. https://www.pexels.com/video/people-holding-hands-3205536/
+2. https://www.pexels.com/video/group-of-people-smiling-3255761/
+3. https://www.pexels.com/videos/search/charity/
+
+After downloading, rename to "background.mp4" and place here.

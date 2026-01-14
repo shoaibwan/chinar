@@ -1,0 +1,31 @@
+# Background Image Instructions
+
+Place your background image here with the name: **background.jpg**
+
+## Specifications:
+- **File name**: background.jpg (or background.png)
+- **Format**: JPG or PNG
+- **Recommended resolution**: 1920x1080 (Full HD) or higher (2560x1440, 3840x2160)
+- **File size**: Optimize for web (aim for under 500KB for JPG, under 1MB for PNG)
+- **Content**: Should be relevant to charity work, community service, or your organization
+
+## Where it's used:
+The image is used as a background for the home/hero section of the website.
+
+## Fallback System:
+- **Priority 1**: Video background (background.mp4) will load first
+- **Priority 2**: If video fails or doesn't exist, this image will display
+- **Priority 3**: If neither exists, the colored overlay will show
+
+## Tips:
+- Use high-quality images that represent your mission
+- Ensure important subjects are centered (text will overlay on top)
+- Slightly darker images work better with white text overlay
+- Test on mobile devices to ensure it looks good at all sizes
+
+## Example:
+```
+/public/images/background.jpg  <-- Place your file here
+```
+
+You can have BOTH video and image files. The website will intelligently choose which to display based on what's available and what loads successfully.
